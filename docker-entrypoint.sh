@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ "$1" = 'zammad' ]; then
   echo -e "\n Starting services... \n"
@@ -8,7 +8,7 @@ if [ "$1" = 'zammad' ]; then
   # starting services
   echo "Starting postgresql"
   service postgresql start > /dev/null
-  service postgresql start || true
+  #service postgresql start || true
   echo "postgresql started"
   echo "Starting elasticsearch"
   service elasticsearch start
