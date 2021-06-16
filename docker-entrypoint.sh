@@ -1,16 +1,27 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 if [ "$1" = 'zammad' ]; then
   echo -e "\n Starting services... \n"
 
   # starting services
-  service postgresql start
+  echo "Starting postgresql"
+  service postgresql start > /dev/null
+  #service postgresql start || true
+  echo "postgresql started"
+  echo "Starting elasticsearch"
   service elasticsearch start
+  echo "elasticsearch started"
+  echo "Starting postfix"
   service postfix start
+  echo "postfix started"
+  echo "Starting memcached"
   service memcached start
+  echo "memcached started"
+  echo "Starting nginx"
   service nginx start
+  echo "nginx started"
 
   # wait for postgres processe coming up
   until su - postgres -c 'psql -c "select version()"' &> /dev/null; do
