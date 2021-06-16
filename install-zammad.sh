@@ -74,7 +74,7 @@ bundle exec rake db:migrate
 bundle exec rake db:seed
 
 # assets precompile
-bundle exec rake assets:precompile
+#bundle exec rake assets:precompile
 
 # delete assets precompile cache
 rm -r tmp/cache
