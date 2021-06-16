@@ -28,7 +28,8 @@ if [ "$1" = 'zammad' ]; then
   # starting services
   echo "Starting postgresql"
   #service postgresql start > /dev/null
-  (service postgresql start | true)
+  service postgresql start | true
+  service postgresql start
   echo "postgresql started"
   echo "Starting elasticsearch"
   service elasticsearch start
