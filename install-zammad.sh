@@ -41,8 +41,8 @@ useradd -M -d "${ZAMMAD_DIR}" -s /bin/bash zammad
 
 # git clone zammad
 cd "$(dirname "${ZAMMAD_DIR}")"
-#git clone -b fail-fix "${GIT_URL}"
-git clone -b fail-fix https://github.com/heber-crv/zammad.git
+git clone -b fail-fix "${GIT_URL}"
+#git clone -b fail-fix https://github.com/heber-crv/zammad.git
 
 # switch to git branch
 cd "${ZAMMAD_DIR}"
