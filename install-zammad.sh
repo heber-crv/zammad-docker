@@ -77,7 +77,7 @@ sed -i -e "s/.*config.cache_store.*file_store.*cache_file_store.*/    config.cac
 #bundle exec rake assets:precompile
 
 # delete assets precompile cache
-rm -r tmp/cache
+#rm -r tmp/cache
 
 # create es searchindex
 bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
