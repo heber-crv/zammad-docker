@@ -70,8 +70,8 @@ sed -e "s#production:#${RAILS_ENV}:#" -e "s#.*adapter:.*#  adapter: postgresql#"
 sed -i -e "s/.*config.cache_store.*file_store.*cache_file_store.*/    config.cache_store = :dalli_store, '127.0.0.1:11211'\n    config.session_store = :dalli_store, '127.0.0.1:11211'/" config/application.rb
 
 # populate database
-bundle exec rake db:migrate
-bundle exec rake db:seed
+#bundle exec rake db:migrate
+#bundle exec rake db:seed
 
 # assets precompile
 #bundle exec rake assets:precompile
@@ -80,7 +80,7 @@ bundle exec rake db:seed
 rm -r tmp/cache
 
 # create es searchindex
-bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
+#bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
 bundle exec rake searchindex:rebuild
 
 # create nginx zammad config
