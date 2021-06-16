@@ -3,6 +3,7 @@
 set -ex
 
 # set env
+export RAILS_ENV=production
 export DEBIAN_FRONTEND=noninteractive
 
 # updating package list
