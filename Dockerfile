@@ -39,10 +39,6 @@ RUN printf '#!/bin/bash\nexit 0' > /usr/sbin/policy-rc.d
 # install zammad
 COPY install-zammad.sh /tmp
 RUN chmod +x /tmp/install-zammad.sh;/bin/bash -l -c /tmp/install-zammad.sh
-#RUN service postgresql start
-#RUN service postfix start
-#RUN service memcached start
-#RUN service nginx start
 
 # cleanup
 RUN apt-get clean -y && \
