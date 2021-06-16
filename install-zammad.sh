@@ -80,8 +80,8 @@ sed -i -e "s/.*config.cache_store.*file_store.*cache_file_store.*/    config.cac
 rm -r tmp/cache
 
 # create es searchindex
-#bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
-bundle exec rake searchindex:rebuild
+bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
+#bundle exec rake searchindex:rebuild
 
 # create nginx zammad config
 sed -e "s#server_name localhost#server_name _#g" < "${ZAMMAD_DIR}"/contrib/nginx/zammad.conf > /etc/nginx/sites-enabled/default
