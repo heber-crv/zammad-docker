@@ -3,6 +3,21 @@
 #set -e
 
 if [ "$1" = 'zammad' ]; then
+
+  #populate database
+  bundle exec rake db:migrate
+  bundle exec rake db:seed
+
+  #assets precompile
+  bundle exec rake assets:precompile
+
+  #delete assets precompile cache
+  rm -r tmp/cache
+
+  #create es searchindex
+  bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
+  bundle exec rake searchindex:rebuild
+
   echo -e "\n Starting services... \n"
 
   # starting services
