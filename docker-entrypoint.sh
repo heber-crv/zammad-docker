@@ -17,6 +17,7 @@ if [ "$1" = 'zammad' ]; then
   #create es searchindex
   bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
   bundle exec rake searchindex:rebuild
+  apt-get clean -y && rm -rf preseed.txt /tmp/install-zammad.sh /var/lib/apt/lists/*
 
   echo -e "\n Starting services... \n"
 
