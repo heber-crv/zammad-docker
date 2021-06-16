@@ -45,8 +45,8 @@ RUN service memcached start
 RUN service nginx start
 
 # cleanup
-#RUN apt-get clean -y && \
-#    rm -rf preseed.txt /tmp/install-zammad.sh /var/lib/apt/lists/*
+RUN apt-get clean -y && \
+    rm -rf preseed.txt /tmp/install-zammad.sh /var/lib/apt/lists/*
 
 # docker init
 COPY docker-entrypoint.sh /

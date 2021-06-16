@@ -3,25 +3,25 @@
 #set -e
 
 if [ "$1" = 'zammad' ]; then
-  service elasticsearch start
+  #service elasticsearch start
   #populate database
-  echo "Populate database"
-  bundle exec rake db:migrate
-  bundle exec rake db:seed
+  #echo "Populate database"
+  #bundle exec rake db:migrate
+  #bundle exec rake db:seed
 
   #assets precompile
-  echo "assets precompile"
-  bundle exec rake assets:precompile
+  #echo "assets precompile"
+  #bundle exec rake assets:precompile
 
   #delete assets precompile cache
-  echo "deleting assets precompile cache"
-  rm -r tmp/cache
+  #echo "deleting assets precompile cache"
+  #rm -r tmp/cache
 
   #create searchindex
-  echo "create searchindex"
-  bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
-  bundle exec rake searchindex:rebuild
-  apt-get clean -y && rm -rf preseed.txt /tmp/install-zammad.sh /var/lib/apt/lists/*
+  #echo "create searchindex"
+  #bundle exec rails r "Setting.set('es_url', 'http://localhost:9200')"
+  #bundle exec rake searchindex:rebuild
+  #apt-get clean -y && rm -rf preseed.txt /tmp/install-zammad.sh /var/lib/apt/lists/*
 
   echo -e "\n Starting services... \n"
 
